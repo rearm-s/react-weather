@@ -13,7 +13,7 @@ function App() {
     const [state, dispatch] = useCitiesList()
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <GlobalContext.Provider value={{state, dispatch}}>
                 <div className="Main">
                     <Switch>

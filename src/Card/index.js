@@ -2,13 +2,13 @@ import './../App.css';
 import React, {memo, useContext, useEffect} from "react";
 import {useWeather} from "../hooks/useWeather";
 import {GlobalContext} from "../App";
-import {Link, useHistory, useRouteMatch} from "react-router-dom";
+import {Link, useHistory, useLocation, useRouteMatch} from "react-router-dom";
 
 export const Card = memo(({city, setCityCoord}) => {
 
     const data = useWeather(city)
     const history = useHistory();
-    const isHome = Boolean(useRouteMatch('/'));
+    const location = useLocation()
 
     const {dispatch} = useContext(GlobalContext)
 
@@ -45,7 +45,7 @@ export const Card = memo(({city, setCityCoord}) => {
         history.goBack()
     }
 
-    if (isHome) {
+    if (location.pathname == '/') {
         return (
             <div className="Card">
                 <div className="ActionButtonWrap">
