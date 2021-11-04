@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter>
             <GlobalContext.Provider value={{state, dispatch}}>
                 <div className="Main">
-                    <Route path="/home">
+                    <Route exact path="/">
                         <Input/>
                         <CardList/>
                     </Route>

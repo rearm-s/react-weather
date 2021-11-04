@@ -8,7 +8,7 @@ export const Card = memo(({city, setCityCoord}) => {
 
     const data = useWeather(city)
     const history = useHistory();
-    const isHome = Boolean(useRouteMatch('/home'));
+    const isHome = Boolean(useRouteMatch('/'));
 
     const {dispatch} = useContext(GlobalContext)
 
