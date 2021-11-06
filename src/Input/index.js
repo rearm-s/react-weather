@@ -6,7 +6,7 @@ import {GlobalContext} from "../App";
 export const Input = () => {
 
     const ref = useRef()
-    const {state: {inputValue, editingCity}, dispatch} = useContext(GlobalContext)
+    const {state: {inputValue, editingCity, citiesList}, dispatch} = useContext(GlobalContext)
 
     const handleOnChange = (e) => {
         dispatch({
@@ -15,8 +15,8 @@ export const Input = () => {
         })
     }
 
-    const handleOnAdd = (e) => {
-        if(inputValue.length) {
+    const handleOnAdd = () => {
+        if(inputValue.length && !citiesList.includes(inputValue)) {
             dispatch({
                 type: 'ADD_CITY',
                 payload: inputValue
@@ -26,10 +26,13 @@ export const Input = () => {
             })
             ref.current.focus()
         }
+        if(citiesList.includes(inputValue)) {
+            alert('This city added yet')
+        }
     }
 
 
-    const handleOnDone = (e) => {
+    const handleOnDone = () => {
         if(inputValue.length) {
             dispatch({
                 type: 'EDIT_CITY_DONE',
@@ -43,12 +46,12 @@ export const Input = () => {
     }
 
     return (
-        <div className="InputWrap">
-            <input className="Input" onChange={handleOnChange} value={inputValue} ref={ref} />
+        <div className="inputWrap">
+            <input className="input" onChange={handleOnChange} value={inputValue} ref={ref} placeholder="Type your city here, for example - Kyiv" />
             {
                 editingCity
-                    ? <button className="Button"onClick={handleOnDone} >Edit</button>
-                    : <button className="Button"onClick={handleOnAdd} >+</button>
+                    ? <button className="button"onClick={handleOnDone}>Edit</button>
+                    : <button className="button"onClick={handleOnAdd} >Add city</button>
             }
 
 

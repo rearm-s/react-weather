@@ -21,11 +21,11 @@ export const CardList = () => {
 
     return (
         <>
-            <select className="Select" defaultValue={sortBy} onChange={handleOnChange}>
+            <select className="select" defaultValue={sortBy} onChange={handleOnChange}>
                 <option value="asc">By name asc</option>
                 <option value="desc">By name desc</option>
             </select>
-            <div className="CardList">
+            <div className="cardList">
                 {
                     sortedCitiesList.map((city, index) => <Card city={city} key={index}/>)
                 }

@@ -13,10 +13,10 @@ export const SingleCity = () => {
     const data = useForecast(cityCoord)
 
     return (
-        <div className="SingleCityWrap">
+        <div className="singleCityWrap">
             <Card city={city} setCityCoord={setCityCoord}/>
             {data &&
-            <div className="DailyCards">
+            <div className="dailyCards">
                 {data.daily.map((daily, index) => <DailyCard key={index} daily={daily} />)}
             </div>
             }

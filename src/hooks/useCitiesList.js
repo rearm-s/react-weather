@@ -43,6 +43,11 @@ const reducer = (state, action) => {
                 ...state,
                 inputValue: ''
             }
+        case 'ADD_AFTER':
+            return {
+                ...state,
+                citiesList: [...state.citiesList, action.payload]
+            }
         default:
             return state
     }

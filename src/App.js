@@ -15,7 +15,7 @@ function App() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <GlobalContext.Provider value={{state, dispatch}}>
-                <div className="Main">
+                <div className="main">
                     <Switch>
                         <Route exact path="/">
                             <Input/>
